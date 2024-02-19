@@ -68,10 +68,14 @@
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}"></use>
                     </svg> Kategori</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('buku.index') }}">
+            <li class="nav-item"><a class="nav-link" href="{{ route('buku') }}">
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}"></use>
                     </svg> Data Buku</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('peminjaman') }}">
+                    <svg class="nav-icon">
+                        <use xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}"></use>
+                    </svg> Data Peminjaman</a></li>
             <li class="nav-divider"></li>
             <li class="nav-title">Settings</li>
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
@@ -79,18 +83,24 @@
                         <use xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-star') }}"></use>
                     </svg> Pages</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="login.html" target="_top">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" target="_top">
                             <svg class="nav-icon">
                                 <use
                                     xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
                                 </use>
                             </svg> Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html" target="_top">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}" target="_top">
                             <svg class="nav-icon">
                                 <use
                                     xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
                                 </use>
                             </svg> Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" target="_top">
+                            <svg class="nav-icon">
+                                <use
+                                    xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
+                                </use>
+                            </svg> LogOut</a></li>
                 </ul>
             </li>
 
@@ -140,17 +150,6 @@
 
                     </li>
                 </ul>
-            </div>
-            <div class="header-divider"></div>
-            <div class="container-fluid">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb my-0 ms-2">
-                        <li class="breadcrumb-item">
-                            <!-- if breadcrumb is single-->
-                        </li>
-                        <span class="text-uppercase fs-5 fw-bold"> Dashboard</span>
-                    </ol>
-                </nav>
             </div>
         </header>
         <div class="body flex-grow-1 px-3">

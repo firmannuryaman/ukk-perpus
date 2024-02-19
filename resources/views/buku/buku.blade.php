@@ -1,6 +1,16 @@
 @extends('layouts.dasboard')
-@section('dashboard')
+
 @section('content')
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+                <li class="breadcrumb-item">
+                    <!-- if breadcrumb is single-->
+                </li>
+                <span class="text-uppercase fs-5 fw-bold"> DATA BUKU</span>
+            </ol>
+        </nav>
+    </div>
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -26,14 +36,11 @@
                             <tbody>
                                 @forelse ($buku as $b)
                                     <tr>
-                                        <td>
-                                            <img src="{{ asset('storage/' . $b->foto_buku) }}" alt="Foto Buku"
-                                                width="100">
-                                        </td>
-                                        <td>{{ $b->judul }}</td>
-                                        <td>{{ $b->penulis }}</td>
-                                        <td>{{ $b->penerbit }}</td>
-                                        <td>{{ $b->tahun_terbit }}</td>
+
+                                        <td>{{ $b->Judul }}</td>
+                                        <td>{{ $b->Penulis }}</td>
+                                        <td>{{ $b->Penerbit }}</td>
+                                        <td>{{ $b->Tahun_terbit }}</td>
                                     </tr>
                                 @empty
                                     <tr>

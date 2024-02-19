@@ -14,7 +14,7 @@
                             <p class="text-success">{{ session('success') }}</p>
                         @endif
 
-                        <form action="{{ route('buku.create') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('buku.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-4">
@@ -23,8 +23,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="pengarang" class="form-label">Penulis:</label>
-                                <input type="text" name="pengarang" class="form-control" required>
+                                <label for="penulis" class="form-label">Penulis:</label>
+                                <input type="text" name="penulis" class="form-control" required>
                             </div>
 
                             <div class="mb-4">

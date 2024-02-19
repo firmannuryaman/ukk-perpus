@@ -18,12 +18,17 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('kategori')" :active="request()->routeIs('kategori')">
-                        {{ __('Kategori') }}
+                        {{ __('Data Kategori') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('buku.index')" :active="request()->routeIs('buku.index')">
+                    <x-nav-link :href="route('buku')" :active="request()->routeIs('buku')">
                         {{ __('Data Buku') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('peminjaman')" :active="request()->routeIs('peminjaman')">
+                        {{ __('Data Peminjaman') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -89,11 +94,6 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-        {{-- <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('kategori')" :active="request()->routeIs('kategori')">
-                {{ __('Data Kategori') }}
-            </x-responsive-nav-link>
-        </div> --}}
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">

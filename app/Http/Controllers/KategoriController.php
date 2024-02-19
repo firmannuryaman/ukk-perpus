@@ -10,12 +10,12 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        return view('buku.kategori', ['kategori' => $kategori]);
+        return view('kategori.kategori', ['kategori' => $kategori]);
     }
 
     public function create()
     {
-        return view('buku.create_kategori');
+        return view('kategori.create_kategori');
     }
     public function store(Request $request)
     {
