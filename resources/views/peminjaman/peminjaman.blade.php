@@ -1,64 +1,76 @@
 @extends('layouts.dasboard')
 
 @section('content')
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+                <li class="breadcrumb-item">
+                    <!-- if breadcrumb is single-->
+                </li>
+                <span class="text-uppercase fs-5 fw-bold"> DATA PEMINJAMAN BUKU</span>
+            </ol>
+        </nav>
+    </div>
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-body bg-white">
-                        <h1 class="h3 font-weight-bold mb-4">Data Peminjaman</h1>
-                        @if (session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
+                    <div class="card-header">List Buku Dipinjam</div>
+                    <div class="card-body">
                         <div class="mb-4">
-                            <a href="{{ route('peminjaman.create') }}" class="btn btn-primary">
-                                + Tambah Data Peminjaman
-                            </a>
-                        </div>
+                            @if (session('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="px-4 py-2">Nama Peminjam</th>
-                                    <th class="px-4 py-2">Buku yang Dipinjam</th>
-                                    <th class="px-4 py-2">Tanggal Peminjaman</th>
-                                    <th class="px-4 py-2">Tanggal Pengembalian</th>
-                                    <th class="px-4 py-2">Status</th>
-                                    <th class="px-4 py-2">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($peminjaman as $p)
+                            <div class="mb-4">
+                                <a href="{{ route('peminjaman.create') }}" class="btn btn-primary">
+                                    + Tambah Data Peminjaman
+                                </a>
+                            </div>
+
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td class="px-4 py-2">{{ $p->user->name }}</td>
-                                        <td class="px-4 py-2">{{ $p->buku->judul }}</td>
-                                        <td class="px-4 py-2">{{ $p->tanggal_peminjaman }}</td>
-                                        <td class="px-4 py-2">{{ $p->tanggal_pengembalian }}</td>
-                                        <td class="px-4 py-2">{{ $p->status }}</td>
-                                        <td class="px-4 py-2">
-                                            @if ($p->status === 'Dipinjam')
-                                                <form action="{{ route('peminjaman.kembalikan', $p->id) }}" method="post">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-primary">Kembalikan</button>
-                                                </form>
-                                            @else
-                                                -
-                                            @endif
-                                        </td>
+                                        <th class="px-2 py-3">Nama Peminjam</th>
+                                        <th class="px-2 py-3">Buku yang Dipinjam</th>
+                                        <th class="px-2 py-3">Tanggal Peminjaman</th>
+                                        <th class="px-2 py-3">Tanggal Pengembalian</th>
+                                        <th class="px-2 py-3">Status</th>
+                                        <th class="px-2 py-3">Aksi</th>
                                     </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="6" class="px-4 py-2 text-center">Tidak ada data buku.</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @forelse($peminjaman as $p)
+                                        <tr>
+                                            <td class="px-1 py-2">{{ $p->user->name }}</td>
+                                            <td class="px-1 py-2">{{ $p->buku->Judul }}</td>
+                                            <td class="px-1 py-2">{{ $p->tanggal_peminjaman }}</td>
+                                            <td class="px-1 py-2">{{ $p->tanggal_pengembalian }}</td>
+                                            <td class="px-1 py-2">{{ $p->status }}</td>
+                                            <td class="px-1 py-2">
+                                                @if ($p->status === 'Dipinjam')
+                                                    <form action="{{ route('peminjaman.kembalikan', $p->id) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Kembalikan</button>
+                                                    </form>
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" class="px-4 py-2 text-center">Tidak ada data buku.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
