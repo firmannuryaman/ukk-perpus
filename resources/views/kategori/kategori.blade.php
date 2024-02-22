@@ -35,6 +35,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="text-center text-uppercase px-4 py-2">Nama Kategori
+                                                    <th class="text-center text-uppercase col-2 px-4 py-2">AKSI
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -42,6 +43,23 @@
                                                 @forelse ($kategori as $k)
                                                     <tr>
                                                         <td class="px-4 py-2">{{ $k->nama_kategori }}</td>
+                                                        <td>
+                                                            <form action="{{ route('kategori.delete', $k->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-warning">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                                <a class="btn btn-primary"
+                                                                    href="{{ route('kategori.edit', $k->id) }}">
+                                                                    <i
+                                                                        class="fa
+                                                                    fa-pen-to-square"></i>
+                                                                </a>
+
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 @empty
                                                     <tr>

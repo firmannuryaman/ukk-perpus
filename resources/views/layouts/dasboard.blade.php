@@ -35,6 +35,8 @@
     <meta name="msapplication-TileImage" content="{{ asset('src/assets/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendors styles-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('src/vendors/simplebar/css/simplebar.css') }}">
     <link rel="stylesheet" href="{{ asset('src/css/vendors/simplebar.css') }}">
     <!-- Main styles for this application-->
@@ -58,7 +60,7 @@
             <li class="nav-item"><a class="nav-link">
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-speedometer') }}"></use>
-                    </svg> Dashboard<span class="badge badge-sm bg-info ms-auto"></span></a></li>
+                    </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
             <li class="nav-title">Menu</li>
             <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">
                     <svg class="nav-icon">
@@ -84,18 +86,6 @@
                     </svg> Pages</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" target="_top">
-                            <svg class="nav-icon">
-                                <use
-                                    xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
-                                </use>
-                            </svg> Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}" target="_top">
-                            <svg class="nav-icon">
-                                <use
-                                    xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
-                                </use>
-                            </svg> Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" target="_top">
                             <svg class="nav-icon">
                                 <use
                                     xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
@@ -143,8 +133,8 @@
                 <ul class="header-nav ms-3">
                     <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown"
                             href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <div class="avatar avatar-md"><img class="avatar-img"
-                                    src="{{ asset('src/assets/img/avatars/8.jpg') }}" alt="user@email.com">
+                            <div class="avatar avatar-md"><img class="avatar-img rounded-circle"
+                                    src="{{ asset('src/assets/img/avatars/3.jpg') }}" alt="user@email.com">
                             </div>
                         </a>
 

@@ -33,21 +33,21 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="px-2 py-3">Nama Peminjam</th>
-                                        <th class="px-2 py-3">Buku yang Dipinjam</th>
-                                        <th class="px-2 py-3">Tanggal Peminjaman</th>
-                                        <th class="px-2 py-3">Tanggal Pengembalian</th>
-                                        <th class="px-2 py-3">Status</th>
-                                        <th class="px-2 py-3">Aksi</th>
+                                        <th class="px-2 py-2 text-center">Nama Peminjam</th>
+                                        <th class="px-2 py-2 text-center">Buku yang Dipinjam</th>
+                                        <th class="px-2 py-2 text-center">Tanggal Peminjaman</th>
+                                        <th class="px-2 py-2 text-center">Tanggal Pengembalian</th>
+                                        <th class="px-2 py-2 text-center">Status</th>
+                                        <th class="px-2 py-2 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse($peminjaman as $p)
                                         <tr>
-                                            <td class="px-1 py-2">{{ $p->user->name }}</td>
+                                            <td class="px-1 py-2 text-center">{{ $p->user->name }}</td>
                                             <td class="px-1 py-2">{{ $p->buku->Judul }}</td>
-                                            <td class="px-1 py-2">{{ $p->tanggal_peminjaman }}</td>
-                                            <td class="px-1 py-2">{{ $p->tanggal_pengembalian }}</td>
+                                            <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
+                                            <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
                                             <td class="px-1 py-2">{{ $p->status }}</td>
                                             <td class="px-1 py-2">
                                                 @if ($p->status === 'Dipinjam')

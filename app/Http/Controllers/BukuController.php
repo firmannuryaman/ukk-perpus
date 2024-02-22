@@ -23,6 +23,12 @@ class BukuController extends Controller
         return view('buku.buku_create', compact('kategori'));
     }
 
+    public function delete($id)
+    {
+        Buku::find($id)->delete();
+        return redirect('/buku');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

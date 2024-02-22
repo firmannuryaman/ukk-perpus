@@ -27,20 +27,32 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Judul Buku</th>
-                                    <th>Penulis</th>
-                                    <th>Penerbit</th>
-                                    <th>Tahun Terbit</th>
+                                    <th class="px-1 py-2 text-center">Judul Buku</th>
+                                    <th class="px-1 py-2 text-center">Penulis</th>
+                                    <th class="px-1 py-2 text-center">Penerbit</th>
+                                    <th class="px-1 py-2 text-center">Tahun Terbit</th>
+                                    <th class="col-1 px-1 py-2 text-center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($buku as $b)
                                     <tr>
-
-                                        <td>{{ $b->Judul }}</td>
-                                        <td>{{ $b->Penulis }}</td>
-                                        <td>{{ $b->Penerbit }}</td>
-                                        <td>{{ $b->Tahun_terbit }}</td>
+                                        <td class="px-1 py-2">{{ $b->Judul }}</td>
+                                        <td class="px-1 py-2">{{ $b->Penulis }}</td>
+                                        <td class="px-1 py-2">{{ $b->Penerbit }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->Tahun_terbit }}</td>
+                                        <td>
+                                            <form action="{{ route('buku.delete', $b->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-warning">HAPUS</button>
+                                                <a class="btn btn-primary" href="{{ route('buku.edit', $b->id) }}">
+                                                    <i
+                                                        class="fa
+                                                                    fa-pen-to-square"></i>
+                                                </a>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
