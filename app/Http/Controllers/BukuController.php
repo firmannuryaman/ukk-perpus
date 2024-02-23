@@ -15,10 +15,31 @@ class BukuController extends Controller
         $kategori = Kategoribukurelasi::all();
         return view('buku.buku', compact('buku', 'kategori'));
     }
+    public function edit($id)
+    {
+        $buku = Buku::findOrFail($id);
+        return view('buku.edit_buku', ['buku' => $buku]);
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'Judul' => 'required',
+            'Penulis' => 'required',
+            'Penerbit' => 'required',
+            'Tahun_terbit' => 'required',
+
+        ]);
+        Buku::find($id)->update([
+            'Judul' => $request->Judul,
+            'Penulis' => $request->Penulis,
+            'Penerbit' => $request->Penerbit,
+            'Tahun_terbit' => $request->Tahun_terbit,
+        ]);
+        return redirect('/buku');
+    }
 
     public function create()
     {
-
         $kategori = Kategori::distinct()->get();
         return view('buku.buku_create', compact('kategori'));
     }
@@ -40,7 +61,7 @@ class BukuController extends Controller
         ]);
 
         // Cari kategori berdasarkan ID
-        $kategori = Kategori::find($request->kategori_id);
+        $kategori = Buku::find($request->id);
 
         //Tambah buku baru beserta kategori
         $buku = Buku::create([

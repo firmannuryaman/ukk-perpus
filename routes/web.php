@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/buku', [BukuController::class, 'index'])->name('buku');
     Route::get('/buku/tambah', [BukuController::class, 'create'])->name('buku.create');
     Route::post('/buku/store', [BukuController::class, 'store'])->name('buku.store');
-    Route::post('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit');
+    Route::get('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit');
     Route::patch('/buku/update{id}', [BukuController::class, 'update'])->name('buku.update');
     Route::delete('/buku/delete/{id}', [BukuController::class, 'delete'])->name('buku.delete');
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/peminjaman/create', [PeminjamanController::class, 'tambahPeminjaman'])->name('peminjaman.create');
     Route::post('/peminjaman/store', [PeminjamanController::class, 'storePeminjaman'])->name('peminjaman.store');
     Route::post('/selesai/{id}', [PeminjamanController::class, 'kembalikanBuku'])->name('peminjaman.kembalikan');
-    Route::get('/report', [PeminjamanController::class, 'print']);
+    Route::get('/report', [PeminjamanController::class, 'print'])->name('print');
 });
 
 require __DIR__ . '/auth.php';

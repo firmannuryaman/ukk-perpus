@@ -31,7 +31,7 @@
                                     <th class="px-1 py-2 text-center">Penulis</th>
                                     <th class="px-1 py-2 text-center">Penerbit</th>
                                     <th class="px-1 py-2 text-center">Tahun Terbit</th>
-                                    <th class="col-1 px-1 py-2 text-center">AKSI</th>
+                                    <th class="col-2 px-1 py-2 text-center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,11 +45,11 @@
                                             <form action="{{ route('buku.delete', $b->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-warning">HAPUS</button>
+                                                <button type="submit" class="btn btn-warning">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
                                                 <a class="btn btn-primary" href="{{ route('buku.edit', $b->id) }}">
-                                                    <i
-                                                        class="fa
-                                                                    fa-pen-to-square"></i>
+                                                    <i class="fa fa-pen-to-square"></i>
                                                 </a>
                                             </form>
                                         </td>

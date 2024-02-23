@@ -24,10 +24,12 @@
                                 </div>
                             @endif
 
-                            <div class="mb-4">
+                            <div class="mb-4 d-flex justify-content-between">
                                 <a href="{{ route('peminjaman.create') }}" class="btn btn-primary">
                                     + Tambah Data Peminjaman
                                 </a>
+                                <a href="{{ route('print') }}" class="btn btn-primary">
+                                    <i class="fa  fa-download" style="font-size: 1pt"> |Ekspor PDF</i></a>
                             </div>
 
                             <table class="table table-bordered">
