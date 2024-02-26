@@ -1,3 +1,4 @@
+a
 <!DOCTYPE html><!--
     * CoreUI - Free Bootstrap Admin Template
     * @version v4.2.2
@@ -85,14 +86,19 @@
                         <use xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-star') }}"></use>
                     </svg> Pages</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" target="_top">
-                            <svg class="nav-icon">
-                                <use
-                                    xlink:href="{{ asset('src/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}">
-                                </use>
-                            </svg> LogOut</a></li>
-                </ul>
+
+                    <a class="nav-item" <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </a>
             </li>
+        </ul>
+        </li>
 
         </ul>
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>

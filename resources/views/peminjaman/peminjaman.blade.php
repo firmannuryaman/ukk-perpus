@@ -29,7 +29,7 @@
                                     + Tambah Data Peminjaman
                                 </a>
                                 <a href="{{ route('print') }}" class="btn btn-primary">
-                                    <i class="fa  fa-download" style="font-size: 1pt"> |Ekspor PDF</i></a>
+                                    <i class="fa  fa-download" style="font-size: 1pt"> &nbsp;Ekspor PDF</i></a>
                             </div>
 
                             <table class="table table-bordered">
