@@ -27,19 +27,23 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="px-1 py-2 text-center">Judul Buku</th>
+                                    <th class="col-2 px-1 py-2 text-center">Foto</th>
+                                    <th class="col-2 px-1 py-2 text-center">Judul Buku</th>
                                     <th class="px-1 py-2 text-center">Penulis</th>
                                     <th class="px-1 py-2 text-center">Penerbit</th>
-                                    <th class="px-1 py-2 text-center">Tahun Terbit</th>
+                                    <th class="col-2 px-1 py-2 text-center">Tahun Terbit</th>
                                     <th class="col-2 px-1 py-2 text-center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($buku as $b)
                                     <tr>
-                                        <td class="px-1 py-2">{{ $b->Judul }}</td>
-                                        <td class="px-1 py-2">{{ $b->Penulis }}</td>
-                                        <td class="px-1 py-2">{{ $b->Penerbit }}</td>
+                                        <td class="text-center">
+                                            <img src="{{ asset('storage/' . $b->Foto) }}" alt="foto Buku" width="100">
+                                        </td>
+                                        <td class="px-1 py-2 text-center">{{ $b->Judul }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->Penulis }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->Penerbit }}</td>
                                         <td class="px-1 py-2 text-center">{{ $b->Tahun_terbit }}</td>
                                         <td>
                                             <form action="{{ route('buku.delete', $b->id) }}" method="post">

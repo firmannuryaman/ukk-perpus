@@ -53,18 +53,20 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'foto' => 'required|image|mimes:png,jpg,jpeg,gif,svg|max:2043',
             'judul' => 'required',
             'penulis' => 'required',
             'penerbit' => 'required',
             'tahun_terbit' => 'required|integer',
             'kategori_id' => 'required',
         ]);
-
+        $fotopatch = $request->file('foto')->store('buku_images', 'public');
         // Cari kategori berdasarkan ID
         $kategori = Buku::find($request->id);
 
         //Tambah buku baru beserta kategori
         $buku = Buku::create([
+            'foto' => $fotopatch,
             'judul' => $request->judul,
             'penulis' => $request->penulis,
             'penerbit' => $request->penerbit,

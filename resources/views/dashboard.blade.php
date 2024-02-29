@@ -1,14 +1,71 @@
 @extends('layouts.dasboard')
 
 @section('content')
-    <div class="py-12">
-        <div
-            class="p-3 mb-2 bg-white text-dark position-center fs-2 fw-semibold position-absolute top-50 start-50 translate-middle">
-            WELCOME <sup class="fst-light">To</sup> <span>|</span> PERPUSTAKAAN <sup class="fst-italic">One</sup>
-            {{-- <div class="p-6 text-gray-900 dark:text-gray-100">
-                {{ __('WELCOME TO | PERPUSTAKAAN DIGITAL!') }} --}}
+    <div class="py-5">
+        <div class="container">
+            <!-- @php
+                $totalBuku = \App\Models\Buku::count();
+                $totalPeminjam = \App\Models\Peminjaman::count();
+                $totalUser = \App\Models\User::count();
+            @endphp -->
+
+            <div class="row">
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Buku</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalBuku }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-book fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Total Peminjam</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalPeminjam }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-danger shadow h-100">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                        Total User</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalUser }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-0 shadow-lg rounded-lg">
+                <div class="card-body">
+                    <div class="text-gray-900 fs-2 text-center text-capitalize fst-italic">
+                        {{ __('Selamat Datang') }} {{ Auth::user()->name }}!
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection
