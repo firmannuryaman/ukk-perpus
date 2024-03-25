@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">List Buku</div>
+                    {{-- <div class="card-header">List Buku</div> --}}
 
                     <div class="card-body">
                         <div class="mb-4">
@@ -25,7 +25,7 @@
                         </div>
 
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="bg-secondary" style="color: white">
                                 <tr>
                                     <th class="col-2 px-1 py-2 text-center">Foto</th>
                                     <th class="col-2 px-1 py-2 text-center">Judul Buku</th>
@@ -39,12 +39,12 @@
                                 @forelse ($buku as $b)
                                     <tr>
                                         <td class="text-center">
-                                            <img src="{{ asset('storage/' . $b->Foto) }}" alt="foto Buku" width="100">
+                                            <img src="{{ asset('storage/' . $b->foto) }}" alt="foto Buku" width="100">
                                         </td>
-                                        <td class="px-1 py-2 text-center">{{ $b->Judul }}</td>
-                                        <td class="px-1 py-2 text-center">{{ $b->Penulis }}</td>
-                                        <td class="px-1 py-2 text-center">{{ $b->Penerbit }}</td>
-                                        <td class="px-1 py-2 text-center">{{ $b->Tahun_terbit }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->judul }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->penulis }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->penerbit }}</td>
+                                        <td class="px-1 py-2 text-center">{{ $b->tahun_terbit }}</td>
                                         <td>
                                             <form action="{{ route('buku.delete', $b->id) }}" method="post">
                                                 @csrf

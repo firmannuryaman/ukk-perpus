@@ -29,7 +29,7 @@
                                 <label for="buku_id" class="form-label">Buku yang Dipinjam:</label>
                                 <select name="buku_id" required class="form-control form-select-lg mb-3">
                                     @foreach ($buku as $b)
-                                        <option value="{{ $b->id }}">{{ $b->Judul }}</option>
+                                        <option value="{{ $b->id }}">{{ $b->judul }}</option>
                                     @endforeach
                                 </select>
                             </div>

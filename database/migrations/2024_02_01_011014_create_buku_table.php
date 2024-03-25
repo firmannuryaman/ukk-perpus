@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('Penulis');
             $table->string('Penerbit');
             $table->integer('Tahun_terbit');
-
             $table->timestamps();
         });
     }

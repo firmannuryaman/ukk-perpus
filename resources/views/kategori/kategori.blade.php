@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">List Kategori</div>
+                    {{-- <div class="card-header">List Kategori</div> --}}
 
 
                     <div class="container py-4">
@@ -32,7 +32,7 @@
 
                                     <div class="card-body">
                                         <table class="table table-bordered">
-                                            <thead>
+                                            <thead class="bg-secondary" style="color: white">
                                                 <tr>
                                                     <th class="text-center text-uppercase px-4 py-2">Nama Kategori
                                                     <th class="text-center text-uppercase col-2 px-4 py-2">AKSI
@@ -53,10 +53,7 @@
                                                                 </button>
                                                                 <a class="btn btn-primary"
                                                                     href="{{ route('kategori.edit', $k->id) }}">
-                                                                    <i
-                                                                        class="fa
-                                                                    fa-pen-to-square"></i>
-                                                                </a>
+                                                                    <i class="fa fa-pen-to-square"></i> </a>
 
                                                             </form>
                                                         </td>

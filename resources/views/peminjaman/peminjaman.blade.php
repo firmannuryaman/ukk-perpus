@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">List Buku Dipinjam</div>
+                    {{-- <div class="card-header">List Buku Dipinjam</div> --}}
                     <div class="card-body">
                         <div class="mb-4">
                             @if (session('success'))
@@ -33,7 +33,7 @@
                             </div>
 
                             <table class="table table-bordered">
-                                <thead>
+                                <thead class="bg-secondary" style="color: white">
                                     <tr>
                                         <th class="px-2 py-2 text-center">Nama Peminjam</th>
                                         <th class="px-2 py-2 text-center">Buku yang Dipinjam</th>
@@ -47,7 +47,7 @@
                                     @forelse($peminjaman as $p)
                                         <tr>
                                             <td class="px-1 py-2 text-center">{{ $p->user->name }}</td>
-                                            <td class="px-1 py-2">{{ $p->buku->Judul }}</td>
+                                            <td class="px-1 py-2 text-center">{{ $p->buku->judul }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
                                             <td class="px-1 py-2">{{ $p->status }}</td>

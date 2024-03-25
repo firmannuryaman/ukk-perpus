@@ -18,7 +18,7 @@
                             @csrf
 
                             <div class="mb-4">
-                                <label for="judul" class="form-label">Judul:</label>
+                                <label for="judul" class="form-label">Judul Buku:</label>
                                 <input type="text" name="judul" class="form-control" required>
                             </div>
 
@@ -53,8 +53,8 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="mb-4">
-                                <label for="foto" class="form-label">Foto:</label>
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto Buku:</label>
                                 <input type="file" name="foto" accept="image/*" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>

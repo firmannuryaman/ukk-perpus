@@ -63,7 +63,6 @@
                     <td>{{ $p->buku->Judul }}</td>
                     <td>{{ carbon\carbon::parse($p->tanggal_peminjaman)->format('d/M/Y') }}</td>
                     <td>{{ carbon\carbon::parse($p->tanggal_pengembalian)->format('d/M/Y') }}</td>
-
                 </tr>
             @endforeach
         </tbody>
