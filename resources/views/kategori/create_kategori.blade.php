@@ -22,6 +22,7 @@
                                 <input type="text" name="nama_kategori" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('kategori') }}" class="btn btn-secondary">Kembali</a>
                         </form>
                     </div>
                 </div>

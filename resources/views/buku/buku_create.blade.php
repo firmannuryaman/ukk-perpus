@@ -58,6 +58,7 @@
                                 <input type="file" name="foto" accept="image/*" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('buku') }}" class="btn btn-secondary">Kembali</a>
                         </form>
                     </div>
                 </div>

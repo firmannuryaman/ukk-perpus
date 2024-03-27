@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
+    <title>Perpustakaan | WEB</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
@@ -30,10 +30,8 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('images/logo.svg') }}"
+                <a class="navbar-brand brand-logo mr-10"><img src="{{ asset('images/logo/logosmk1.jpg') }}"
                         class="mr-2" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/logo-mini.svg') }}"
-                        alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -56,7 +54,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                             data-toggle="dropdown">
-                            <i class="icon-bell mx-0"></i>
+                            <i class="fa-regular fa-bell fa-beat"></i>
                             <span class="count"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
@@ -103,15 +101,13 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <li class="nav-item nav-profile">
+                        <a class="">
                             <img src="{{ asset('images/faces/face29.jpg') }}" alt="profile" />
                         </a>
                     </li>
-                    <li class="nav-item nav-settings">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-house"></i>
-                        </a>
+                    <li class="nav-item">
+                        <i class="fa-solid fa-hand fa-spin" style="--fa-animation-direction: reverse;"></i>
                     </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -164,28 +160,31 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('kategori') }}">
                                 <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">Kategori</span>
+                                <span class="menu-title">Data Kategori</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false"
-                                aria-controls="auth">
+                            <a class="nav-link" href="{{ route('buku') }}">
                                 <i class="icon-paper menu-icon"></i>
-                                <span class="menu-title">Buku</span>
-                                <i class="menu-arrow"></i>
+                                <span class="menu-title">Data Buku</span>
                             </a>
-                            <div class="collapse" id="auth">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('welcome') }}"> Detail
-                                            Buku </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="icon-columns menu-icon"></i>
+                                <span class="menu-title">Detail Buku</span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('peminjaman') }}">
                                 <i class="icon-bar-graph menu-icon"></i>
-                                <span class="menu-title">Peminjaman</span>
+                                <span class="menu-title">Data Peminjaman</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.index') }}">
+                                <i class="icon-head menu-icon"></i>
+                                <span class="menu-title">User</span>
                             </a>
                         </li>
                     @endrole

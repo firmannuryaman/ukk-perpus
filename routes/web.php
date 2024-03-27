@@ -4,21 +4,32 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use FontLib\Table\Type\name;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BukuController::class, 'welcome'])->name('welcome');
+Route::get('/detail/{id}', [BukuController::class, 'detail'])->name('detail');
 
 // semua level admin user yang belum masuk
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 // admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user', [UserController::class, 'index'])->name('users.index');
+    Route::get('/user/tambah', [UserController::class, 'create'])->name('users.create');
+    Route::post('/user/store', [UserController::class, 'store'])->name('users.store');
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/user/update/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+});
+//petugas dan admin
+Route::middleware(['auth'], 'role:petugas|admin')->group(function () {
     Route::get('/buku', [BukuController::class, 'index'])->name('buku');
     Route::get('/buku/tambah', [BukuController::class, 'create'])->name('buku.create');
     Route::post('/buku/store', [BukuController::class, 'store'])->name('buku.store');
@@ -39,10 +50,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 //user
-Route::get('/user/peminjaman', [PeminjamanController::class, 'userPeminjaman'])->name('peminjaman.user')
-    ->middleware(['auth', 'role:user']);
-Route::get('/detail/{id}', [BukuController::class, 'detail'])->name('detail');
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/user/peminjaman', [PeminjamanController::class, 'userPeminjaman'])->name('peminjaman.user');
+});
 
+// ->middleware(['auth', 'role:user']);
 // Route::get('/user/detail/{id}', [BukuController::class, 'detail'])->name('detail');
 
 require __DIR__ . '/auth.php';

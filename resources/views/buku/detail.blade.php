@@ -8,10 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<div class="container">
+<div class="container-center bg-dark-subtle">
     <div class="row d-flex justify-content-center">
         <div class="col-md-4"> <!-- Adjust the column size based on your preference -->
-            <div class="card mb-4">
+            <div class="card mb-4 border border-dark" style="margin: 15px">
                 <img src="{{ asset('storage/' . $buku->foto) }}" class="rounded" alt="">
                 <div class="card-body">
                     <table class="table table-hover">
@@ -31,8 +31,15 @@
                             <th>Tahun Terbit: </th>
                             <td>{{ $buku->tahun_terbit }}</td>
                         </tr>
-                        <tr>
+
+                        <th>
+                        <td class="">
+                            <a href="{{ route('buku') }}" class="btn btn-danger">Kembali</a>
+                        </td>
+                        </th>
+
                     </table>
+
                 </div>
             </div>
         </div>
