@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | BUKU</title>
+</head>
 @section('content')
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
@@ -27,19 +30,19 @@
                         <table class="table table-bordered">
                             <thead class="bg-secondary" style="color: white">
                                 <tr>
-                                    <th class="col-2 px-1 py-2 text-center">Foto</th>
-                                    <th class="col-2 px-1 py-2 text-center">Judul Buku</th>
-                                    <th class="px-1 py-2 text-center">Penulis</th>
-                                    <th class="px-1 py-2 text-center">Penerbit</th>
-                                    <th class="col-2 px-1 py-2 text-center">Tahun Terbit</th>
-                                    <th class="col-2 px-1 py-2 text-center">AKSI</th>
+                                    <th class="col-2 px-1 py-2 text-center">FOTO BUKU</th>
+                                    <th class="col-2 px-1 py-2 text-center">JUDUL BUKU</th>
+                                    <th class="px-1 py-2 text-center">PENULIS</th>
+                                    <th class="px-1 py-2 text-center">PENERBIT</th>
+                                    <th class="col-2 px-1 py-2 text-center">TAHUN TERBIT</th>
+                                    <th class="col-1 px-1 py-2 text-center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($buku as $b)
                                     <tr>
                                         <td class="text-center">
-                                            <img src="{{ asset('storage/' . $b->foto) }}" alt="foto Buku" width="100">
+                                            <img src="{{ asset('storage/' . $b->foto) }}" alt="Foto Buku" width="100" />
                                         </td>
                                         <td class="px-1 py-2 text-center">{{ $b->judul }}</td>
                                         <td class="px-1 py-2 text-center">{{ $b->penulis }}</td>

@@ -40,13 +40,25 @@ class PeminjamanController extends Controller
             'tanggal_pengembalian' => $request->tanggal_pengembalian,
             'status' => 'Dipinjam',
         ]);
-        return redirect('/peminjaman');
+        return redirect('/peminjaman')->with('succes', 'Buku berhasil di tambah');
     }
     public function kembalikanBuku($id)
     {
         $peminjaman = Peminjaman::findOrFail($id);
-        $peminjaman->tanggal_pengembalian = now();
-        $peminjaman->status = 'Dikembalikan';
+
+        // Menghitung selisih hari antara tanggal seharusnya dikembalikan dan tanggal pengembalian
+        $tanggal_seharusnya_dikembalikan = strtotime($peminjaman->tanggal_pengembalian);
+        $tanggal_kembali = strtotime(date('Y-m-d H:i:s'));
+        $selisih_hari = ($tanggal_kembali - $tanggal_seharusnya_dikembalikan) / (60 * 60 * 24);
+
+        if ($selisih_hari > 0) {
+            // Jika terlambat, status menjadi 'Denda'
+            $peminjaman->status = 'Denda';
+        } else {
+            // Jika tidak, statusnya 'Dikembalikan'
+            $peminjaman->status = 'Dikembalikan';
+        }
+
         $peminjaman->save();
 
         return redirect()->route('peminjaman')->with('success', 'Buku berhasil dikembalikan');
@@ -64,7 +76,7 @@ class PeminjamanController extends Controller
         $pdf = PDF::loadView('printpdf.format', $data)->setPaper('a4');
         return $pdf->download('Laporan.pdf');
     }
-    
+
     public function userPeminjaman()
     {
         //mendapatkan id pengguna yang login

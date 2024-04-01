@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | EDIT BUKU</title>
+</head>
 @section('content')
     <div class="container py-5">
         <div class="row justify-content-center">

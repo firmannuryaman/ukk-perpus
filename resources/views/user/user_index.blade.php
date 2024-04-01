@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | USER</title>
+</head>
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -14,15 +17,15 @@
                     </div>
 
 
-                    <div class="table-responsive">
+                    <div class="table table-bordererd">
                         <table class="table table-bordered">
                             <thead class="bg-secondary" style="color: white">
                                 <tr>
-                                    <th class="px-1 py-2 text-center">Id</th>
-                                    <th class="px-1 py-2 text-center">Nama</th>
-                                    <th class="px-1 py-2 text-center">Email</th>
-                                    <th class="px-1 py-2 text-center">Role</th>
-                                    <th class="col-2 px-1 py-2 text-center">Aksi</th>
+                                    <th class="px-1 py-2 text-center">ID</th>
+                                    <th class="px-1 py-2 text-center">NAMA</th>
+                                    <th class="px-1 py-2 text-center">EMAIL</th>
+                                    <th class="px-1 py-2 text-center">ROLE</th>
+                                    <th class="col-2 px-1 py-2 text-center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,14 +40,15 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            {{-- <form action="{{ route('users.delete', $u->id) }}" method="post">
+                                            <form action="{{ route('users.delete', $u->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-warning">
                                                     <i class="fa fa-trash"></i>
-                                                </button> --}}
-                                            <a class="btn btn-primary" href="{{ route('users.edit', $u->id) }}">
-                                                <i class="fa fa-pen-to-square"></i> </a>
+                                                </button>
+                                                <a class="btn btn-primary" href="{{ route('users.edit', $u->id) }}">
+                                                    <i class="fa fa-pen-to-square"></i> </a>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -55,6 +59,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

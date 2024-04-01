@@ -69,7 +69,7 @@ class BukuController extends Controller
     public function delete($id)
     {
         Buku::find($id)->delete();
-        return redirect('/buku');
+        return redirect('/buku')->with('success', 'buku berhasil di hapus');
     }
 
     public function store(Request $request)

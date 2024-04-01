@@ -36,7 +36,7 @@ class UserController extends Controller
         $user->save();
 
         $user->assignRole($request->roles); //memberikan role yang dipilih kepada user
-        return redirect()->route('users.index')->with('succes', 'user berhasil di tambahkan');
+        return redirect()->route('users.index')->with('success', 'user berhasil di tambahkan');
     }
     public function edit($id)
     {
@@ -48,16 +48,16 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $users = User::findOrFail($id);
-        // $roles = Role::all();
         $users->update($request->all());
         $users->syncRoles($request->roles);
 
-        return redirect('/user');
+        return redirect('/user')->with('success', 'Berhasil di ubah');
     }
-    // public function delete($id)
-    // {
-    //     User::find($id)->delete();
-    //     return redirect('/user');
-    // }
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users.index')->with('success', 'Berhasil di hapus');
+    }
 
 }

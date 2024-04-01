@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | KATEGORI</title>
+</head>
 @section('content')
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
@@ -35,7 +38,7 @@
                                             <thead class="bg-secondary" style="color: white">
                                                 <tr>
                                                     <th class="text-center text-uppercase px-4 py-2">Nama Kategori
-                                                    <th class="text-center text-uppercase col-2 px-4 py-2">AKSI
+                                                    <th class="text-center text-uppercase col-1 px-4 py-2">AKSI
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -54,7 +57,6 @@
                                                                 <a class="btn btn-primary"
                                                                     href="{{ route('kategori.edit', $k->id) }}">
                                                                     <i class="fa fa-pen-to-square"></i> </a>
-
                                                             </form>
                                                         </td>
                                                     </tr>
@@ -71,4 +73,8 @@
                             </div>
                         </div>
                     </div>
-                @endsection
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

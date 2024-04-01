@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | TAMBAH BUKU</title>
+</head>
 @section('content')
     <div class="container py-4">
         <div class="row justify-content-center">
@@ -17,17 +20,17 @@
                         <form action="{{ route('buku.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <label for="judul" class="form-label">Judul Buku:</label>
                                 <input type="text" name="judul" class="form-control" required>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <label for="penulis" class="form-label">Penulis:</label>
                                 <input type="text" name="penulis" class="form-control" required>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <label for="penerbit" class="form-label">Penerbit:</label>
                                 <input type="text" name="penerbit" class="form-control" required>
                             </div>
@@ -45,12 +48,13 @@
                                 </select>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <label for="kategori_id" class="form-label">Kategori:</label>
-                                <select name="kategori_id" class="form-control" required>
+                                <select name="kategori_id" class="form-select custom-select" required>
                                     @foreach ($kategori as $k)
                                         <option value="{{ $k->id }}">{{ $k->nama_kategori }}</option>
                                     @endforeach
+
                                 </select>
                             </div>
                             <div class="mb-3">

@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | PEMINJAMAN</title>
+</head>
 @section('content')
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
@@ -35,12 +38,12 @@
                             <table class="table table-bordered">
                                 <thead class="bg-secondary" style="color: white">
                                     <tr>
-                                        <th class="px-2 py-2 text-center">Nama Peminjam</th>
-                                        <th class="px-2 py-2 text-center">Buku yang Dipinjam</th>
-                                        <th class="px-2 py-2 text-center">Tanggal Peminjaman</th>
-                                        <th class="px-2 py-2 text-center">Tanggal Pengembalian</th>
-                                        <th class="px-2 py-2 text-center">Status</th>
-                                        <th class="px-2 py-2 text-center">Aksi</th>
+                                        <th class="px-2 py-2 text-center">NAMA PEMINJAM</th>
+                                        <th class="px-2 py-2 text-center">BUKU DIPINJAM</th>
+                                        <th class="px-2 py-2 text-center">TANGGAL PINJAM</th>
+                                        <th class="px-2 py-2 text-center">TANGGAL KEMBALI</th>
+                                        <th class="px-2 py-2 text-center">STATUS</th>
+                                        <th class="px-2 py-2 text-center">AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,7 +53,7 @@
                                             <td class="px-1 py-2 text-center">{{ $p->buku->judul }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
-                                            <td class="px-1 py-2">{{ $p->status }}</td>
+                                            <td class="px-1 py-2 text-center">{{ $p->status }}</td>
                                             <td class="px-1 py-2">
                                                 @if ($p->status === 'Dipinjam')
                                                     <form action="{{ route('peminjaman.kembalikan', $p->id) }}"
@@ -75,4 +78,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

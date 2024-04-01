@@ -1,5 +1,8 @@
 @extends('layouts.dasboard')
 
+<head>
+    <title>PERPUSTAKAAN | WEB | DASHBOARD</title>
+</head>
 @section('content')
     <div class="py-5">
         <div class="container">
@@ -8,7 +11,6 @@
                 $totalPeminjam = \App\Models\Peminjaman::count();
                 $totalUser = \App\Models\User::count();
             @endphp -->
-
         </div>
         @role('admin')
             <div class="row">
@@ -56,16 +58,17 @@
                                 <div class="col-auto">
                                     <i class="fas fa-user fa-2x text-gray-300"></i>
                                 </div>
+                                </class>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endrole
-            <div class="card border-0 shadow-lg rounded-lg">
-                <div class="card-body">
-                    <div class="text-gray-900 text-center text-capitalize fst-italic">
-                        {{ __('Selamat Datang') }} {{ Auth::user()->name }}!
-                    </div>
+            </div>
+        @endrole
+        <div class="card border-0 shadow-lg rounded-lg">
+            <div class="card-body">
+                <div class="text-gray-900 text-center text-capitalize fst-italic">
+                    {{ __('Selamat Datang') }} {{ Auth::user()->name }}!
                 </div>
             </div>
         </div>

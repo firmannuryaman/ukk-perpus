@@ -31,13 +31,13 @@ class KategoriController extends Controller
         Kategori::find($id)->update([
             'nama_kategori' => $request->nama_kategori,
         ]);
-        return redirect('/kategori');
+        return redirect('/kategori')->with('success','Kategori berhasil di update');
     }
 
     public function delete($id)
     {
         Kategori::find($id)->delete();
-        return redirect('/kategori');
+        return redirect('/kategori')->with('success','Kategori berhasil di hapus');
     }
     public function store(Request $request)
     {

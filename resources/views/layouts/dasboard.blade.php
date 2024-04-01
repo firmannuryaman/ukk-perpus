@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Perpustakaan | WEB</title>
+    <title>PERPUSTAKAAN | WEB</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
@@ -54,7 +54,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                             data-toggle="dropdown">
-                            <i class="fa-regular fa-bell fa-beat"></i>
+                            <i class="fa-regular fa-bell fa-beat"
+                                style="--fa-animation-duration: 3s; --fa-fade-opacity: 0.5;"></i>
                             <span class="count"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
@@ -102,13 +103,22 @@
                         </div>
                     </li>
                     <li class="nav-item nav-profile">
-                        <a class="">
-                            <img src="{{ asset('images/faces/face29.jpg') }}" alt="profile" />
+                        <img src="{{ asset('images/logo/logosmkmja.png') }}"
+                            alt="profile" />&nbsp;&nbsp;{{ Auth::user()->name }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <i class="fa-solid fa-hand fa-spin" style="--fa-animation-direction: reverse;"></i>
-                    </li>
+                    @role('admin|petugas')
+                        <li class="nav-item">
+                            <i class="fa-solid fa-users fa-fade"
+                                style="--fa-animation-duration: 3s; --fa-fade-opacity: 0.5;"></i>
+                        </li>
+                    @endrole
+                    @role('user')
+                        <li class="nav-item">
+                            <i class="fa-solid fa-user fa-fade"
+                                style="--fa-animation-duration: 3s; --fa-fade-opacity: 0.5;"></i>
+                        </li>
+                    @endrole
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                     data-toggle="offcanvas">
@@ -156,7 +166,7 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
-                    @role('admin')
+                    @role('admin|petugas')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('kategori') }}">
                                 <i class="icon-layout menu-icon"></i>
@@ -181,6 +191,8 @@
                                 <span class="menu-title">Data Peminjaman</span>
                             </a>
                         </li>
+                    @endrole
+                    @role('admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">
                                 <i class="icon-head menu-icon"></i>
@@ -188,7 +200,6 @@
                             </a>
                         </li>
                     @endrole
-
                     @role('user')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('peminjaman.user') }}">
@@ -206,10 +217,11 @@
                         </a>
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
-                                {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                                <li class="nav-item"> <a class="nav-link" href="{{ route('profile.edit') }}">
+                                        Profile </a>
                                 </li>
                                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">
-                                        Register </a></li> --}}
+                                        Register </a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                                      document.getElementById('logout-form').submit();">
@@ -233,19 +245,22 @@
                         </div>
                     </div>
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
+
                 {{-- FOOTER --}}
-                {{-- <footer class="footer">
+                <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024.
-                            Premium <a href="https://www.bootstrapdash.com/" target="_blank">
+                            Premium </span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Hand-crafted & made
+                            with<br>
+                            <span>Firman | DEV</span></span>
+
+                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by
+                                <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+                        </div>
                     </div>
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by
-                            Firman|DEV</a></span>
-                    </div>
-                </footer> --}}
+                </footer>
                 <!-- partial -->
             </div>
             <!-- main-panel ends -->
