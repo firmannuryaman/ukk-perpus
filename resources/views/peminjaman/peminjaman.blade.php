@@ -53,7 +53,15 @@
                                             <td class="px-1 py-2 text-center">{{ $p->buku->judul }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
-                                            <td class="px-1 py-2 text-center">{{ $p->status }}</td>
+                                            <td class="px-1 py-2">
+                                                @if ($p->status == 'Dipinjam')
+                                                    <span class="badge bg-warning">{{ $p->status }}</span>
+                                                @elseif ($p->status == 'Dikembalikan')
+                                                    <span class="badge bg-primary">{{ $p->status }}</span>
+                                                @elseif ($p->status == 'Denda')
+                                                    <span class="badge bg-danger">{{ $p->status }}</span>
+                                                @endif
+                                            </td>
                                             <td class="px-1 py-2">
                                                 @if ($p->status === 'Dipinjam')
                                                     <form action="{{ route('peminjaman.kembalikan', $p->id) }}"
