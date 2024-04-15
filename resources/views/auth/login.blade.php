@@ -20,7 +20,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/vertical-layout-light/style.css" />
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link rel="icon" href="{{ asset('images/logo/logosmkmja.png') }}" />
 
 </head>
 
@@ -33,9 +33,9 @@
                 <div class="content-wrapper d-flex align-items-center auth px-0">
                     <div class="row w-100 mx-0">
                         <div class="col-lg-4 mx-auto">
-                            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="auth-form-light text-center py-5 px-4 px-sm-5">
                                 <div class="brand-logo">
-                                    <img src="{{ asset('images/logo.svg') }}" alt="logo" />
+                                    <img src="{{ asset('images/logo/logosmk1.jpg') }}" alt="logo" />
                                 </div>
                                 <h4>Hello! let's get started</h4>
                                 <h6 class="font-weight-light">Sign in to continue.</h6>
@@ -48,7 +48,6 @@
                                             <input type="text" class="form-control" id="email" name="email"
                                                 :value="old('email')" placeholder="Masukkan email" required>
                                         </div>
-
                                     </div>
                                     <div class="form-group">
                                         <label class="visually-hidden" for="password"
@@ -65,8 +64,8 @@
                                                 {{ __('Log In') }}
                                             </button>
                                     </div>
-                                    <div class="my-2 d-flex justify-content-between align-items-center">
-                                        <p class="text-right">
+                                    <div class="text-right" style="margin-top: 15px">
+                                        <p>
                                             @if (Route::has('password.request'))
                                                 <a class="" href="{{ route('password.request') }}">Anda
                                                     Lupa Password?

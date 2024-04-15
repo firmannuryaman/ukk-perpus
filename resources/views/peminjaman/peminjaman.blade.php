@@ -32,7 +32,7 @@
                                     + Tambah Data Peminjaman
                                 </a>
                                 <a href="{{ route('print') }}" class="btn btn-primary">
-                                    <i class="fa  fa-download" style="font-size: 1pt"> &nbsp;Ekspor PDF</i></a>
+                                    <i class="fa  fa-download" style="font-size: 1pt">Ekspor PDF</i></a>
                             </div>
 
                             <table class="table table-bordered">
@@ -42,6 +42,7 @@
                                         <th class="px-2 py-2 text-center">BUKU DIPINJAM</th>
                                         <th class="px-2 py-2 text-center">TANGGAL PINJAM</th>
                                         <th class="px-2 py-2 text-center">TANGGAL KEMBALI</th>
+                                        {{-- <th class="px-2 py-2 text-center">TANGGAL SEKARANG</th> --}}
                                         <th class="px-2 py-2 text-center">STATUS</th>
                                         <th class="px-2 py-2 text-center">AKSI</th>
                                     </tr>
@@ -53,6 +54,7 @@
                                             <td class="px-1 py-2 text-center">{{ $p->buku->judul }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
                                             <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
+                                            {{-- <td class="px-1 py-2 text-center">{{ $p->tanggal_sekarang }}</td> --}}
                                             <td class="px-1 py-2">
                                                 @if ($p->status == 'Dipinjam')
                                                     <span class="badge bg-warning">{{ $p->status }}</span>

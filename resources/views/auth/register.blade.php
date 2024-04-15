@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -39,21 +39,20 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('DAFTAR') }}
+                {{ __('Register') }}
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
 
 {{-- register design --}}
-<!DOCTYPE html>
-<html lang="en">
+{{-- @extends('layouts.app') --}}
 
 <head>
     <!-- Required meta tags -->
@@ -70,7 +69,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link rel="icon" href="{{ asset('images/logo/logosmkmja.png') }}" />
 </head>
 
 <body>
@@ -86,43 +85,59 @@
                             <h4>New here?</h4>
                             <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
                             <form class="pt-3">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg"
-                                        id="exampleInputUsername1" placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                                        placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                                        <option>Country</option>
-                                        <option>United States of America</option>
-                                        <option>United Kingdom</option>
-                                        <option>India</option>
-                                        <option>Germany</option>
-                                        <option>Argentina</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg"
-                                        id="exampleInputPassword1" placeholder="Password">
-                                </div>
-                                <div class="mb-4">
-                                    <div class="form-check">
-                                        <label class="form-check-label text-muted">
-                                            <input type="checkbox" class="form-check-input">
-                                            I agree to all Terms & Conditions
-                                        </label>
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
+
+                                    <div class="form-group">
+                                        <label class="visually-hidden" for="name" :value="__('name')"></label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Masukkan nama" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mt-3">
-                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                        href="../../index.html">SIGN UP</a>
-                                </div>
-                                <div class="text-center mt-4 font-weight-light">
-                                    Already have an account? <a href="login.html" class="text-primary">Login</a>
-                                </div>
+                                    <div class="form-group" style="margin-top: -30px">
+                                        <label class="visually-hidden" for="email" :value="__('email')"></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">@</div>
+                                            <input type="text" class="form-control" id="email" name="email"
+                                                :value="old('email')" placeholder="Masukkan email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top: -30px">
+                                        <label class="visually-hidden" for="password" :value="__('password')"></label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                :value="old('password')" placeholder="Masukkan password" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top: -30px">
+                                        <label class="visually-hidden" for="password_confirmation"
+                                            :value="__('Confirm Password')"></label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                name="password_confirmation" :value="old('Confirm Password')"
+                                                placeholder="Masukkan password baru" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="form-check">
+                                            <label class="form-check-label text-muted">
+                                                <input type="checkbox" class="form-check-input">
+                                                I agree to all Terms & Conditions
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <form method="POST" action="{{ route('register') }}" />
+                                        <button type="submit"
+                                            class="btn btn-block btn-primary">{{ __('Register') }}</button>
+
+                                    </div>
+                                    <div class="text-center mt-4 font-weight-light">
+                                        Already have an account? <a href="{{ route('login') }}"
+                                            class="text-primary">Login</a>
+                                    </div>
+                                </form>
                             </form>
                         </div>
                     </div>
