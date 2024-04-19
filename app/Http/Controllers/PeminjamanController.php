@@ -45,6 +45,7 @@ class PeminjamanController extends Controller
     public function kembalikanBuku($id)
     {
         $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->tanggal_sekarang = now();
 
         // Menghitung selisih hari antara tanggal seharusnya dikembalikan dan tanggal pengembalian
         $tanggal_seharusnya_dikembalikan = strtotime($peminjaman->tanggal_pengembalian);
@@ -88,5 +89,14 @@ class PeminjamanController extends Controller
             ->get();
 
         return view('peminjaman.user_index', compact('peminjaman'));
+    }
+    public function bayarDenda($id)
+    {
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->status = 'Dikembalikan';
+        $peminjaman->tanggal_sekarang = now();
+        $peminjaman->save();
+
+        return redirect()->route('peminjaman.peminjaman')->with('success', 'Denda berhasil dibayar');
     }
 }

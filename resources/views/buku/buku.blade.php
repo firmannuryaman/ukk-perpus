@@ -41,9 +41,9 @@
                             <tbody>
                                 @forelse ($buku as $b)
                                     <tr>
-                                        <td class="text-center">
+                                        <th class="text-center" style="max-width: 100%; height: auto;">
                                             <img src="{{ asset('storage/' . $b->foto) }}" alt="Foto Buku" width="100" />
-                                        </td>
+                                        </th>
                                         <td class="px-1 py-2 text-center">{{ $b->judul }}</td>
                                         <td class="px-1 py-2 text-center">{{ $b->penulis }}</td>
                                         <td class="px-1 py-2 text-center">{{ $b->penerbit }}</td>
