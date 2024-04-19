@@ -55,7 +55,7 @@
                                                 <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
                                                 <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
                                                 <td class="px-1 py-2 text-center">{{ $p->tanggal_sekarang }}</td>
-                                                <td class="px-1 py-2">
+                                                <td class="px-1 py-2 text-center">
                                                     @if ($p->status == 'Dipinjam')
                                                         <span class="badge bg-warning">{{ $p->status }}</span>
                                                     @elseif ($p->status == 'Dikembalikan')
