@@ -97,6 +97,6 @@ class PeminjamanController extends Controller
         $peminjaman->tanggal_sekarang = now();
         $peminjaman->save();
 
-        return redirect()->route('peminjaman.peminjaman')->with('success', 'Denda berhasil dibayar');
+        return redirect()->route('peminjaman')->with('success', 'Denda berhasil dibayar');
     }
 }

@@ -50,11 +50,17 @@
                                     <tbody>
                                         @forelse($peminjaman as $p)
                                             <tr>
-                                                <td class="px-1 py-2 text-center">{{ $p->user->name }}</td>
-                                                <td class="px-1 py-2 text-center">{{ $p->buku->judul }}</td>
-                                                <td class="px-1 py-2 text-center">{{ $p->tanggal_peminjaman }}</td>
-                                                <td class="px-1 py-2 text-center">{{ $p->tanggal_pengembalian }}</td>
-                                                <td class="px-1 py-2 text-center">{{ $p->tanggal_sekarang }}</td>
+                                                <td class="px-4 py-2">{{ $p->user->name }}</td>
+                                                <td class="px-4 py-2">{{ $p->buku->judul }}</td>
+                                                <td class="px-4 py-2">
+                                                    {{ \Carbon\Carbon::parse($p->tanggal_peminjaman)->format('d-M-Y') }}
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    {{ $p->tanggal_pengembalian ? \Carbon\Carbon::parse($p->tanggal_pengembalian)->format('d-M-Y') : 'Belum Dikembalikan' }}
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    {{ $p->tanggal_sekarang ? \Carbon\Carbon::parse($p->tanggal_sekarang)->format('d-M-Y') : '' }}
+                                                </td>
                                                 <td class="px-1 py-2 text-center">
                                                     @if ($p->status == 'Dipinjam')
                                                         <span class="badge bg-warning">{{ $p->status }}</span>
